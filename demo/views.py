@@ -11,4 +11,4 @@ class DemoViews(ListView):
 
 class DemoPageView(DetailView):
     model = Post
-    template_name = "post_detail.html"
+    template_name = "post_details.html"
