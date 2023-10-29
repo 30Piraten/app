@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# order of url matters as django reads it from
+# top to bottom!
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),  # new
+    path("accounts/", include("accounts.urls")),  # new
     path("", include("demo.urls"))  # new
 ]
