@@ -1,0 +1,19 @@
+<html>
+
+<head>
+    <title>Demo BLog</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a href="{% url 'home' %}">Demo Blog</a>
+        </h1>
+    </header>
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+
+</html>
