@@ -118,6 +118,9 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# we tell django to look into our static folder for files.
+STATICFILES_DIRS = [str(BASE_DIR.joinpath("static"))]  # new
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
