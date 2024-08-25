@@ -17,7 +17,7 @@ type response struct {
 
 func main() {
 	http.HandleFunc("/fastest-mirror", func(w http.ResponseWriter, r *http.Request) {
-		response := findFastest(mirrors.MirrorList)
+		response := findFastest(mirrors.MirrorList[:])
 		responseJSON, _ := json.Marshal(response)
 
 		w.Header().Set("Content-Type", "application/json")
@@ -45,7 +45,7 @@ func findFastest(urls []string) response {
 		go func() {
 			start := time.Now()
 			_, err := http.Get(mirrorURL + "/README")
-			latency := time.Now().Sub(start) / time.Millisecond
+			latency := time.Since(start) / time.Millisecond
 			if err == nil {
 				urlChannel <- mirrorURL
 				latencyChannel <- latency
