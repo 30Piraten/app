@@ -1,0 +1,44 @@
+{
+    "openapi": "3.1.0",
+    "info" : {
+        "title": "Go REST Mirror Finder",
+        "description": "API service for finding the fastest mirror from the list of given mirror sites",
+        "version": "0.1.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:1234",
+            "description": "Development server"
+        }
+    ],
+    "paths": {
+        "/fastest-mirror": {
+           "get": {
+                "summary": "Return a fastest mirror from the list of given mirror sites.",
+                "description": "This call returns data of the fastest mirror from the list of given mirror sites.",
+                "responses": {
+                    "200": {
+                        "description": "A JSON object of details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "fastest_mirror": {
+                                            "type": "string"
+                                        },
+                                        "latency": {
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+    }
+}
